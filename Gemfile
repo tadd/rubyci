@@ -23,3 +23,7 @@ group :production do
   gem 'sqreen', '< 1.17.2'
   gem 'airbrake'
 end
+
+gem 'rbs', path: '../rbs'
+gem 'rbs_rails', path: '../rbs_rails'
+gem 'steep', path: '../steep'

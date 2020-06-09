@@ -1,0 +1,84 @@
+class Report < ApplicationRecord
+  extend _ActiveRecord_Relation_ClassMethods[Report, Report::ActiveRecord_Relation]
+
+  attr_accessor id (): Integer
+  attr_accessor server_id (): Integer
+  attr_accessor datetime (): Time
+  attr_accessor branch (): String
+  attr_accessor revision (): Integer
+  attr_accessor summary (): String
+  attr_accessor created_at (): Time
+  attr_accessor updated_at (): Time
+  attr_accessor option (): String
+  attr_accessor ltsv (): String
+
+  def server: () -> Server
+
+  def sha1: () -> String
+
+  def revisionuri: () -> untyped
+
+  def meta_ruby_repo_key: () -> untyped
+
+  def dt: () -> untyped
+
+  def jstdt: () -> untyped
+
+  def sjstdt: () -> untyped
+
+  def patchlevel: () -> untyped
+
+  def build: () -> untyped
+
+  def btest: () -> untyped
+
+  def testknownbug: () -> untyped
+
+  def test: () -> untyped
+
+  def testall: () -> untyped
+
+  def rubyspec: () -> untyped
+
+  def shortsummary: () -> untyped
+
+  def diffstat: () -> untyped
+
+  def depsuffixed_name: () -> untyped
+
+  def branch_opts: () -> untyped
+
+  def loguri: () -> untyped
+
+  def diffuri: () -> untyped
+
+  def failuri: () -> untyped
+
+  def recenturi: () -> untyped
+
+  def meta: () -> untyped
+
+  def self.store_log: (untyped server_id, untyped http, untyped path, untyped datetime, untyped branch, untyped option, untyped revision, untyped ltsv, untyped summary, untyped depsuffixed_name) -> untyped
+
+  def self.sql_datetime: (untyped col) -> untyped
+
+  def self.scan_recent: (untyped server, untyped depsuffixed_name, untyped body, untyped http, untyped recentpath) -> untyped
+
+  def self.scan_recent_ltsv: (untyped server, untyped depsuffixed_name, untyped body, untyped http, untyped recentpath) -> untyped
+
+  def self.get_reports: (untyped server) -> untyped
+
+  def self.fetch_recent: () -> untyped
+
+  def self.post_recent: () -> untyped
+end
+
+Report::REG_RCNT: Regexp
+
+class Report::ActiveRecord_Relation < ActiveRecord::Relation
+  include _ActiveRecord_Relation[Report]
+  include Enumerable[Report, self]
+end
+
+class Report::ActiveRecord_Associations_CollectionProxy < ActiveRecord::Associations::CollectionProxy
+end
