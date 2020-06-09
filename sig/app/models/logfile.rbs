@@ -1,0 +1,20 @@
+class Logfile < ApplicationRecord
+  extend _ActiveRecord_Relation_ClassMethods[Logfile, Logfile::ActiveRecord_Relation]
+
+  attr_accessor id (): Integer
+  attr_accessor report_id (): Integer
+  attr_accessor ext (): String
+  attr_accessor data (): String
+  attr_accessor created_at (): Time
+  attr_accessor updated_at (): Time
+
+  def report: () -> Report
+end
+
+class Logfile::ActiveRecord_Relation < ActiveRecord::Relation
+  include _ActiveRecord_Relation[Logfile]
+  include Enumerable[Logfile, self]
+end
+
+class Logfile::ActiveRecord_Associations_CollectionProxy < ActiveRecord::Associations::CollectionProxy
+end

@@ -1,0 +1,23 @@
+class Server < ApplicationRecord
+  extend _ActiveRecord_Relation_ClassMethods[Server, Server::ActiveRecord_Relation]
+
+  attr_accessor id (): Integer
+  attr_accessor name (): String
+  attr_accessor uri (): String
+  attr_accessor created_at (): Time
+  attr_accessor updated_at (): Time
+  attr_accessor arch (): String
+  attr_accessor os (): String
+  attr_accessor version (): String
+  attr_accessor ordinal (): Float
+
+  def recent_uri: (String) -> String
+end
+
+class Server::ActiveRecord_Relation < ActiveRecord::Relation
+  include _ActiveRecord_Relation[Server]
+  include Enumerable[Server, self]
+end
+
+class Server::ActiveRecord_Associations_CollectionProxy < ActiveRecord::Associations::CollectionProxy
+end
