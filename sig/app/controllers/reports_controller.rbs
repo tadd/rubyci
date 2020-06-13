@@ -1,18 +1,15 @@
-class ApplicationController
-end
-
 class ReportsController < ApplicationController
   # GET /reports
   # GET /reports.json
-  def index: () -> untyped
+  def index: () -> void
 
-  def current: () -> untyped
+  def current: () -> void
 
   # GET /reports/1
   # GET /reports/1.json
-  def show: () -> untyped
+  def show: () -> void
 
-  def filter_deprecated: (untyped reports) -> untyped
+  def filter_deprecated: (Array[Report] reports) -> Array[Report]
 end
 
-ReportsController::DEPRECATED_SERVER_BRANCHES: ::Hash[untyped, untyped]
+ReportsController::DEPRECATED_SERVER_BRANCHES: Hash[String, Array[String]]
