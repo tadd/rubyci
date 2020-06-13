@@ -9,6 +9,8 @@ class Logfile < ApplicationRecord
   attr_accessor updated_at (): Time
 
   def report: () -> Report
+
+  def uri: () -> String
 end
 
 class Logfile::ActiveRecord_Relation < ActiveRecord::Relation
