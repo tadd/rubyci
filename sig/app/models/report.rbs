@@ -16,61 +16,60 @@ class Report < ApplicationRecord
 
   def sha1: () -> String
 
-  def revisionuri: () -> untyped
+  def revisionuri: () -> String?
 
-  def meta_ruby_repo_key: () -> untyped
+  def meta_ruby_repo_key: () -> nil
 
-  def dt: () -> untyped
+  def dt: () -> String
 
-  def jstdt: () -> untyped
+  def jstdt: () -> String
 
-  def sjstdt: () -> untyped
+  def sjstdt: () -> String
 
-  def patchlevel: () -> untyped
+  def patchlevel: () -> String?
 
-  def build: () -> untyped
+  def build: () -> String?
 
-  def btest: () -> untyped
+  def btest: () -> String?
 
-  def testknownbug: () -> untyped
+  def testknownbug: () -> String?
 
-  def test: () -> untyped
+  def test: () -> String?
 
-  def testall: () -> untyped
+  def testall: () -> String?
 
-  def rubyspec: () -> untyped
+  def rubyspec: () -> String?
 
-  def shortsummary: () -> untyped
+  def shortsummary: () -> String?
 
-  def diffstat: () -> untyped
+  def diffstat: () -> String?
 
-  def depsuffixed_name: () -> untyped
+  def depsuffixed_name: () -> String?
 
-  def branch_opts: () -> untyped
+  def branch_opts: () -> String?
 
-  def loguri: () -> untyped
+  def loguri: () -> String
 
-  def diffuri: () -> untyped
+  def diffuri: () -> String
 
-  def failuri: () -> untyped
+  def failuri: () -> String?
 
-  def recenturi: () -> untyped
+  def recenturi: () -> String
 
-  def meta: () -> untyped
+  def meta: () -> Hash[String, String]?
 
-  def self.store_log: (untyped server_id, untyped http, untyped path, untyped datetime, untyped branch, untyped option, untyped revision, untyped ltsv, untyped summary, untyped depsuffixed_name) -> untyped
+ def self.store_log: (Integer server_id, Net::HTTP http, String path, Time datetime, String branch, String option, Integer revision, String ltsv, String summary, String? depsuffixed_name) -> void
+  def self.sql_datetime: (String col) -> String
 
-  def self.sql_datetime: (untyped col) -> untyped
+  def self.scan_recent: (Server server, String? depsuffixed_name, String body, Net::HTTP http, String recentpath) -> void
 
-  def self.scan_recent: (untyped server, untyped depsuffixed_name, untyped body, untyped http, untyped recentpath) -> untyped
+  def self.scan_recent_ltsv: (Server server, String? depsuffixed_name, String body, Net::HTTP http, String recentpath) -> void
 
-  def self.scan_recent_ltsv: (untyped server, untyped depsuffixed_name, untyped body, untyped http, untyped recentpath) -> untyped
+  def self.get_reports: (Server server) -> void
 
-  def self.get_reports: (untyped server) -> untyped
+  def self.fetch_recent: () -> void
 
-  def self.fetch_recent: () -> untyped
-
-  def self.post_recent: () -> untyped
+  def self.post_recent: () -> void
 end
 
 Report::REG_RCNT: Regexp

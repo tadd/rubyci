@@ -45,11 +45,11 @@ class Report < ApplicationRecord
   end
 
   def jstdt
-    (datetime + 32400).strftime("%Y-%m-%d %H:%M:%S +0900")
+    (datetime + (_ = 32400)).strftime("%Y-%m-%d %H:%M:%S +0900")
   end
 
   def sjstdt
-    (datetime + 32400).strftime("%m-%d %H:%M")
+    (datetime + (_ = 32400)).strftime("%m-%d %H:%M")
   end
 
   def patchlevel
@@ -179,6 +179,7 @@ class Report < ApplicationRecord
     latest = Report.where(server_id: server.id, branch: branch, option: option).
       order("#{sql_datetime("datetime")} ASC").last
 
+    # @type var ary: Array[[String, String, Time]]
     ary = []
     body.scan(REG_RCNT) do |dt, summary|
       datetime = Time.utc(*dt.unpack("A4A2A2xA2A2A2"))
@@ -186,6 +187,7 @@ class Report < ApplicationRecord
       ary << [dt, summary, datetime]
     end
 
+    # @type var ary: Array[[String, Hash[String, String], String, Time]]
     ary.reverse_each do |dt, summary, datetime|
       puts "reporting #{server.name} #{depsuffixed_name} #{dt} ..."
       revision = (summary[/\br(\d+)\b/, 1] ||

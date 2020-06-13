@@ -9,6 +9,7 @@ class ActiveRecord::Base
   def self.validate: (*untyped) -> void
   def self.validates: (*untyped) -> void
   def self.enum: (Hash[Symbol, untyped]) -> void
+  def self.abstract_class=: (bool) -> void
 
   # callbacks
   def self.after_commit: (*untyped) -> void
