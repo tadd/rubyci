@@ -1,5 +1,6 @@
 class ReportsController < ApplicationController
   # Put server name and branch which you want to hide without waiting for 14 days
+  # @type const DEPRECATED_SERVER_BRANCHES: Hash[String?, Array[String]]
   DEPRECATED_SERVER_BRANCHES = {
     # report_name => [branch]
     # ex) 'Debian 8.8 x86_64' => ['master']
@@ -35,7 +36,7 @@ class ReportsController < ApplicationController
   def current
     @use_opacity = true
     last = Report.last
-    last_modified = last ? last.updated_at.utc : Time.at(0)
+    last_modified = last ? last.updated_at.utc : Time.at(_ = 0)
     interval = 600 # cron interval
     margin = 30 # margin for cron's processing
     expires_in (last_modified.to_i - Time.now.to_i + interval - margin) % interval

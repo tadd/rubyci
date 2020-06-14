@@ -1,0 +1,4 @@
+class ServersController < ApplicationController
+  def auth: () -> void
+  def server_params: () -> ActionController::Parameters
+end

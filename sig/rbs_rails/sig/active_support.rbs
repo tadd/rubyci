@@ -2,6 +2,7 @@ extension Object (ActiveSupport)
   def blank?: () -> bool
   def present?: () -> bool
   def presence: () -> self
+  def `in?`: (Array[untyped]) -> bool
 end
 
 extension String (ActiveSupport)

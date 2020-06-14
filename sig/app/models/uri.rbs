@@ -3,6 +3,8 @@ extension Kernel (URI)
 end
 
 class URI
+  def self.parse: (String) -> instance
+
   def path: () -> String
   def host: () -> String
 end

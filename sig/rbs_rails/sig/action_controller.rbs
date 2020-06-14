@@ -6,6 +6,14 @@ interface _ActionController_API_and_Base
   def flash: () -> untyped
   def render: (*untyped) -> void
   def redirect_to: (*untyped) -> void
+  def respond_to: (*Symbol) -> void |
+                  () { (untyped) -> void } -> void
+  def expires_in: (Integer | untyped, ?public: bool, ?must_revalidate: bool, ?stale_while_revalidate: untyped, ?stale_if_error: untyped) -> void
+  def stale?: (?Object?, ?etag: untyped, ?weak_etag: untyped, ?strong_etag: untyped, ?last_modified: Time, ?public: bool, ?template: bool) -> bool
+
+  def root_path: () -> String
+  def authenticate_or_request_with_http_basic: (?String, ?String) -> void |
+                                               () { (String, String) -> bool } -> void
 end
 
 interface _ActionController_API_and_Base_singletion
@@ -22,6 +30,7 @@ interface _ActionController_API_and_Base_singletion
   def append_before_action: (*untyped) -> void
   def append_around_action: (*untyped) -> void
   def append_after_action: (*untyped) -> void
+
   def protect_from_forgery: () -> void
 
   def rescue_from: (*Class, ?with: Symbol | Proc) { (Exception) -> void } -> void
@@ -36,4 +45,7 @@ end
 class ActionController::API
   include _ActionController_API_and_Base
   extend _ActionController_API_and_Base_singletion
+end
+
+class ActionController::Parameters
 end

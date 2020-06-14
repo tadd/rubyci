@@ -34,6 +34,7 @@ class ActiveRecord::Base
 
   def will_save_change_to_attribute?: (String | Symbol attr_name, ?from: untyped, ?to: untyped) -> bool
 
+  def initialize: (*untyped) -> void
   def save!: () -> self
   def save: () -> bool
   def update!: (*untyped) -> self
@@ -48,6 +49,7 @@ class ActiveRecord::Base
 end
 
 class ActiveRecord::Relation
+  include Enumerable[untyped, untyped]
 end
 
 class ActiveRecord::Associations::CollectionProxy
@@ -92,6 +94,8 @@ interface _ActiveRecord_Relation[Model]
   def delete_all: () -> untyped
   def update_all: (*untyped) -> untyped
   def each: () { (Model) -> void } -> self
+  def limit: (Integer) -> self
+  def references: (*Symbol) -> self
 end
 
 interface _ActiveRecord_Relation_ClassMethods[Model, Relation]
@@ -123,6 +127,8 @@ interface _ActiveRecord_Relation_ClassMethods[Model, Relation]
   def find_by!: (*untyped) -> Model
   def find: (Integer id) -> Model
   def first: () -> Model
+           | (Integer count) -> Array[Model]
+  def last: () -> Model
            | (Integer count) -> Array[Model]
   def find_each: (?batch_size: Integer, ?start: Integer, ?finish: Integer, ?error_on_ignore: bool) { (Model) -> void } -> nil
   def find_in_batches: (?batch_size: Integer, ?start: Integer, ?finish: Integer, ?error_on_ignore: bool) { (self) -> void } -> nil
