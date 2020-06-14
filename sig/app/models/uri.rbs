@@ -1,0 +1,8 @@
+extension Kernel (URI)
+  def URI: (String) -> URI
+end
+
+class URI
+  def path: () -> String
+  def host: () -> String
+end

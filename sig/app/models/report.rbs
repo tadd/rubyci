@@ -1,6 +1,3 @@
-class Net::HTTP
-end
-
 class Report < ApplicationRecord
   extend _ActiveRecord_Relation_ClassMethods[Report, Report::ActiveRecord_Relation]
 
@@ -17,7 +14,7 @@ class Report < ApplicationRecord
 
   def server: () -> Server
 
-  def sha1: () -> String
+  def sha1: () -> String?
 
   def revisionuri: () -> String?
 
@@ -49,7 +46,7 @@ class Report < ApplicationRecord
 
   def depsuffixed_name: () -> String?
 
-  def branch_opts: () -> String?
+  def branch_opts: () -> String
 
   def loguri: () -> String
 
@@ -61,7 +58,7 @@ class Report < ApplicationRecord
 
   def meta: () -> Hash[String, String]?
 
- def self.store_log: (Integer server_id, Net::HTTP http, String path, Time datetime, String branch, String option, Integer revision, String ltsv, String summary, String? depsuffixed_name) -> void
+ def self.store_log: (Integer server_id, Net::HTTP http, String path, Time datetime, String branch, String option, Integer? revision, String? ltsv, String summary, String? depsuffixed_name) -> void
   def self.sql_datetime: (String col) -> String
 
   def self.scan_recent: (Server server, String? depsuffixed_name, String body, Net::HTTP http, String recentpath) -> void

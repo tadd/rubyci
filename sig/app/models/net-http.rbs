@@ -1,0 +1,7 @@
+class Net::HTTPResponse
+  def value: () -> void
+end
+
+class Net::HTTP
+  def get: (String) -> Net::HTTPResponse
+end

@@ -174,13 +174,15 @@ class Report < ApplicationRecord
 
     # @type var ary: Array[[String, String, Time]]
     ary = []
+    # @type var dt: String
+    # @type var summary: String
     body.scan(REG_RCNT) do |dt, summary|
+      # @type var datetime: Time
       datetime = Time.utc(*dt.unpack("A4A2A2xA2A2A2"))
       break if latest and datetime <= latest.datetime
       ary << [dt, summary, datetime]
     end
 
-    # @type var ary: Array[[String, Hash[String, String], String, Time]]
     ary.reverse_each do |dt, summary, datetime|
       puts "reporting #{server.name} #{depsuffixed_name} #{dt} ..."
       revision = (summary[/\br(\d+)\b/, 1] ||
@@ -209,6 +211,7 @@ class Report < ApplicationRecord
     path = nil
     latest = Report.where(server_id: server.id, branch: branch, option: option).
       order("#{sql_datetime("datetime")} ASC").last
+    # @type var ary: Array[[String, Hash[String, String], String, Time]]
     ary = []
     body.each_line do |line|
       line.chomp!
@@ -221,7 +224,7 @@ class Report < ApplicationRecord
     ary.reverse_each do |line, h, dt, datetime|
       puts "reporting #{server.name} #{depsuffixed_name} #{dt} ..."
       # subversion revision of ruby is less than 99999
-      revision = h["ruby_rev"] && h["ruby_rev"].size <= 6 ? h["ruby_rev"][1, 5].to_i : nil
+      revision = h["ruby_rev"] && h["ruby_rev"].size <= (_ = 6) ? h["ruby_rev"][1, 5].to_i : nil
       summary = h["title"]
       summary << ' success' if h["result"] == 'success'
       diff = h["different_sections"]
