@@ -30,13 +30,6 @@ class Report < ApplicationRecord
 
   def meta_ruby_repo_key
     return @meta_ruby_repo_key if @meta_ruby_repo_key
-    [
-    ].find do |key|
-      if meta.include?(key)
-        @meta_ruby_repo_key = key
-        return key
-      end
-    end
     nil
   end
 
