@@ -22,6 +22,7 @@ interface _ActionController_API_and_Base_singletion
   def append_before_action: (*untyped) -> void
   def append_around_action: (*untyped) -> void
   def append_after_action: (*untyped) -> void
+  def protect_from_forgery: () -> void
 
   def rescue_from: (*Class, ?with: Symbol | Proc) { (Exception) -> void } -> void
 end
