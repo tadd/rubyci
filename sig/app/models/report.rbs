@@ -70,6 +70,8 @@ class Report < ApplicationRecord
   def self.fetch_recent: () -> void
 
   def self.post_recent: () -> void
+
+  def mytest: () -> Integer
 end
 
 Report::REG_RCNT: Regexp

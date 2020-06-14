@@ -337,4 +337,8 @@ class Report < ApplicationRecord
     puts e.backtrace
     return []
   end
+
+  def mytest
+    'foo'
+  end
 end
