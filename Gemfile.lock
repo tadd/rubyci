@@ -12,7 +12,7 @@ PATH
 PATH
   remote: ../steep
   specs:
-    steep (0.16.3)
+    steep (0.17.0)
       activesupport (>= 5.1)
       ast_utils (~> 0.3.0)
       language_server-protocol (~> 3.14.0.2)
@@ -83,7 +83,7 @@ GEM
       airbrake-ruby (~> 4.13)
     airbrake-ruby (4.14.1)
       rbtree3 (~> 0.5)
-    ast (2.4.0)
+    ast (2.4.1)
     ast_utils (0.3.0)
       parser (~> 2.4)
       thor (>= 0.19)
