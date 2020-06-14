@@ -1,0 +1,2 @@
+class ActiveJob::Base
+end
