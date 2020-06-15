@@ -7,19 +7,19 @@ PATH
 PATH
   remote: ../rbs
   specs:
-    rbs (0.3.1)
+    rbs (0.4.0)
 
 PATH
   remote: ../steep
   specs:
-    steep (0.17.0)
+    steep (0.17.1)
       activesupport (>= 5.1)
       ast_utils (~> 0.3.0)
       language_server-protocol (~> 3.14.0.2)
       listen (~> 3.1)
       parser (~> 2.7.0)
       rainbow (>= 2.2.2, < 4.0)
-      rbs (~> 0.3.1)
+      rbs (>= 0.3.1, < 0.5.0)
 
 GEM
   remote: https://rubygems.org/
