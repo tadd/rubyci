@@ -96,6 +96,7 @@ interface _ActiveRecord_Relation[Model]
   def each: () { (Model) -> void } -> self
   def limit: (Integer) -> self
   def references: (*Symbol) -> self
+  def length: () -> Integer
 end
 
 interface _ActiveRecord_Relation_ClassMethods[Model, Relation]
