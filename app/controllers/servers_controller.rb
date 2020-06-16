@@ -86,8 +86,8 @@ class ServersController < ApplicationController
   def moveup
     servers = Server.order(:ordinal).all
     idx = params[:id].to_i
-    # may be `nil` if the params was wrong
     idx = servers.find_index{|x| x.id == idx }
+    raise ActionController::BadRequest, 'invalid id param' unless idx
     case idx
     when 0
       # nop
@@ -116,8 +116,8 @@ class ServersController < ApplicationController
   def movedown
     servers = Server.order(:ordinal).all
     idx = params[:id].to_i
-    # may be `nil` if the params was wrong
     idx = servers.find_index{|x| x.id == idx }
+    raise ActionController::BadRequest, 'invalid id param' unless idx
     case idx - servers.length
     when -1
       # nop
