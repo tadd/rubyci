@@ -103,7 +103,7 @@ class ServersController < ApplicationController
     end
 
     respond_to do |format|
-      if cur.save
+      if cur&.save
         format.html { redirect_to servers_url }
         format.json { head :ok }
       else
@@ -133,7 +133,7 @@ class ServersController < ApplicationController
     end
 
     respond_to do |format|
-      if cur.save
+      if cur&.save
         format.html { redirect_to servers_url }
         format.json { head :ok }
       else
