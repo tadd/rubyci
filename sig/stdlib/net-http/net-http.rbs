@@ -3,5 +3,6 @@ class Net::HTTPResponse
 end
 
 class Net::HTTP
+  def self.start: (Integer, String, ?open_timeout: Integer, ?read_timeout: Integer) { (instance) -> void } -> void
   def get: (String) -> Net::HTTPResponse
 end
